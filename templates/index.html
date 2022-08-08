@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 class="title">{% block title %} customers {% endblock %}</h1>
+    <div class="content">
+        {% for customer in customers %}
+            <div class="customer">
+                <p><b>#{{ customer.id }}</b></p>
+                <p>{{ customer.firstName }}</p> 
+                <p>{{ customer.lastName }}</p>
+                <p>{{ customer.email }}</p>
+                <p>{{ customer.country }} </p>
+                <p>{{ customer.city }}</p>
+                <p>{{ customer.dateOfBirth }}</p>
+                
+            </div>
+        {% endfor %}
+    </div>
+    <h1 class="title2">{% block title2 %} orders {% endblock %}</h1>
+    <div class="content">
+        {% for order in orders %}
+            <div class="order">
+                <p><b>#{{ order.id }}</b></p>
+                <p>{{ order.firstName }}</p> 
+                <p>{{ order.lastName }}</p>
+                <p>{{ order.email }}</p>
+                <p>{{ order.item }} </p>
+                
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

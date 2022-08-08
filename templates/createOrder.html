@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1 style="width: 100%">{% block title %} Add a New order {% endblock %}</h1>
+    <form method="post">
+        <p>
+            <label for="firstName">firstName</label>
+            <input type="text" name="firstName"
+                   placeholder="firstName">
+            </input>
+        </p>
+
+        <p>
+            <label for="lastName">lastName</label>
+            <input type="text" name="lastName"
+                   placeholder="Last name">
+            </input>
+        </p>
+
+        <p>
+            <label for="email">email</label>
+            <input type="email" name="email"
+                   placeholder="order email">
+            </input>
+        </p>
+
+        <p>
+            <label for="item">item</label>
+            <input type="text" name="item"
+                   placeholder="item">
+            </input>
+        </p>
+
+        <p>
+            <button type="submit">Submit</button>
+        </p>
+    </form>
+{% endblock %}
