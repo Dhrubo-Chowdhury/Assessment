@@ -5,8 +5,8 @@ ERD:
 
 Endpints:
 1. Create a new Customer ("/customers/")
-  Sample request:
-  ``` 
+Sample request:
+``` 
 {
     "firstName" : "Dhrubo",
     "lastName" : "Hasan",
@@ -16,7 +16,7 @@ Endpints:
     "country" : "USA"
 }
 ```
-3. Create a new Order ("orders/")
+3. Create a new Order ("/orders/")
 ``` 
 {
     "firstName" : "Dhrubo",
@@ -26,9 +26,9 @@ Endpints:
 }
 ```
 5. Find day from DOB ("/customers/{customer_id}/birthday")
-  sample response:
- ```
- {
+sample response:
+```
+{
     "DOB": "11-29-1993",
     "day": "Monday"
  }
