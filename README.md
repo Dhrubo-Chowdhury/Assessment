@@ -8,7 +8,13 @@ Step 1: Make sure you have Python
 
 Step 2: Install the requirements: pip install -r requirements.txt
 
-Step 3: Go to this app's directory and run ```python -m flask run```
+Step 3: To create the database tables, open a flask shell and type 
+```
+>>> from yourapplication import Customer, Order
+>>> db.create_all()
+```
+
+Step 4: Go to this app's directory and run ```python -m flask run```
 
 
 Endpints:
