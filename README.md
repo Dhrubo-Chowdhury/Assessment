@@ -14,7 +14,7 @@ Endpints:
 }
 ```
 3. Create a new Order ("orders/")
-    ``` 
+``` 
   {
     "firstName" : "Dhrubo",
     "lastName" : "Hasan",
@@ -24,19 +24,19 @@ Endpints:
 ```
 5. Find day from DOB ("/customers/{customer_id}/birthday")
   sample response:
-  ```
+ ```
   {
     "DOB": "11-29-1993",
     "day": "Monday"
     }
-    ```
+```
 6. Find continent ("/customers/{customer_id}/continent")
 sample response:
-  ```
+```
   {
     "country": "Bahamas",
     "continent": "NA"
     }
-    ```
+```
 7. 
 8. 
