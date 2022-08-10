@@ -2,7 +2,8 @@
 ERD:
 ![image](https://user-images.githubusercontent.com/48079397/183977894-03b25eb0-cd44-441d-a013-da2072bbaae7.png)
 
-How to Run
+##How to Run
+
 Step 1: Make sure you have Python
 
 Step 2: Install the requirements: pip install -r requirements.txt
