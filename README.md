@@ -16,7 +16,7 @@ Sample request:
     "country" : "USA"
 }
 ```
-3. Create a new Order ("/orders/")
+2. Create a new Order ("/orders/")
 ``` 
 {
     "firstName" : "Dhrubo",
@@ -25,7 +25,7 @@ Sample request:
     "item" : "Medicine"
 }
 ```
-5. Find day from DOB ("/customers/{customer_id}/birthday")
+3. Find day from DOB ("/customers/{customer_id}/birthday")
 sample response:
 ```
 {
@@ -33,7 +33,7 @@ sample response:
     "day": "Monday"
  }
 ```
-6. Find continent ("/customers/{customer_id}/continent")
+4. Find continent ("/customers/{customer_id}/continent")
 sample response:
 ```
 {
@@ -41,5 +41,3 @@ sample response:
     "continent": "NA"
 }
 ```
-7. 
-8. 
