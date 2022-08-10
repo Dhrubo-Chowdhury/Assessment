@@ -1,4 +1,7 @@
 # Assessment
+ERD:
+![image](https://user-images.githubusercontent.com/48079397/183977894-03b25eb0-cd44-441d-a013-da2072bbaae7.png)
+
 
 Endpints:
 1. Create a new Customer ("/customers/")
