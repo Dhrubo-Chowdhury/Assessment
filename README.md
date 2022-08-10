@@ -56,3 +56,4 @@ sample response:
     "continent": "NA"
 }
 ```
+All emails are convereted to lowercase before storing in the database.
