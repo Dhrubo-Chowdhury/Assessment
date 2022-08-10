@@ -119,8 +119,7 @@ def create_order():
         )
         db.session.add(order)
         db.session.commit()
-        return redirect(url_for('index'))
-    return render_template('createOrder.html')
+    return jsonify(order.to_json()), 201
 
 @application.route('/customers/<int:id>/', methods=['GET'])
 def get_customer(id):
@@ -137,20 +136,20 @@ def get_customer_continent(id):
     customer = Customer.query.get(id)
     return jsonify(customer.to_json_continent())
 
-# @app.route('/orders/', methods=['POST'])
-# def create_order():
-#     if not request.json:
-#         abort(400)
-#     order = Order(
-#         firstName = request.json.get('firstName'),
-#         lastName = request.json.get('lastName'),
-#         email = request.json.get('email').lower(),
-#         item = request.json.get('item'),
-#         customer_id = Customer.query.filter_by(email = request.json.get('email').lower()).first().id
-#     )
-#     db.session.add(order)
-#     db.session.commit()
-#     return jsonify(order.to_json()), 201
+@app.route('/orders/', methods=['POST'])
+def create_order():
+    if not request.json:
+        abort(400)
+    order = Order(
+        firstName = request.json.get('firstName'),
+        lastName = request.json.get('lastName'),
+        email = request.json.get('email').lower(),
+        item = request.json.get('item'),
+        customer_id = Customer.query.filter_by(email = request.json.get('email').lower()).first().id
+    )
+    db.session.add(order)
+    db.session.commit()
+    return jsonify(order.to_json()), 201
 
 @application.route('/orders/<int:id>/', methods=['GET'])
 def get_order(id):
