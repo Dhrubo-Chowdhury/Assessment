@@ -10,7 +10,7 @@ Step 2: Install the requirements: ```pip install -r requirements.txt```
 
 Step 3: To create the database tables, open a flask shell and type 
 ```
->>> from yourapplication import Customer, Order
+>>> from Assessment import Customer, Order
 >>> Customer.create_all()
 >>> Order.create_all()
 ```
