@@ -80,46 +80,41 @@ class Order(db.Model):
     def __repr__(self):
         return f'<Order "{self.item}">'
 
-@application.route('/create/', methods=['POST', 'GET'])
+@application.route('/customers/', methods=['POST'])
 def create_customer():
-    if request.method == 'POST':
-        firstName = request.form['firstName']
-        lastName = request.form['lastName']
-        dateOfBirth = request.form['dateOfBirth']
-        city = request.form['city']
-        country = request.form['country']
-        email = request.form['email']
-        customer = Customer(
-            firstName = firstName,
-            lastName = lastName,
-            dateOfBirth = dateOfBirth,
-            city = city,
-            country = country,
-            email = email
-        )
-        db.session.add(customer)
-        db.session.commit()
-        return redirect(url_for('index'))
-    return render_template('create.html')
+    if not request.json:
+        abort(400)
+    customer = Customer(
+        firstName = request.json.get('firstName'),
+        lastName = request.json.get('lastName'),
+        email = request.json.get('email').lower(),
+        dateOfBirth = request.json.get('dateOfBirth'),
+        city = request.json.get('city'),
+        country = request.json.get('country')
 
-@application.route('/createorder/', methods=['POST', 'GET'])
-def create_order():
-    if request.method == 'POST':
-        firstName = request.form['firstName']
-        lastName = request.form['lastName']
-        email = request.form['email'].lower()
-        item = request.form['item']
-        customer_id = Customer.query.filter_by(email = email).first().id
-        order = Order(
-            firstName = firstName,
-            lastName = lastName,
-            email = email,
-            item = item,
-            customer_id = customer_id
-        )
-        db.session.add(order)
-        db.session.commit()
-    return jsonify(order.to_json()), 201
+    )
+    db.session.add(customer)
+    db.session.commit()
+    return jsonify(customer.to_json()), 201
+
+# @application.route('/createorder/', methods=['POST', 'GET'])
+# def create_order():
+#     if request.method == 'POST':
+#         firstName = request.form['firstName']
+#         lastName = request.form['lastName']
+#         email = request.form['email'].lower()
+#         item = request.form['item']
+#         customer_id = Customer.query.filter_by(email = email).first().id
+#         order = Order(
+#             firstName = firstName,
+#             lastName = lastName,
+#             email = email,
+#             item = item,
+#             customer_id = customer_id
+#         )
+#         db.session.add(order)
+#         db.session.commit()
+#     return jsonify(order.to_json()), 201
 
 @application.route('/customers/<int:id>/', methods=['GET'])
 def get_customer(id):
@@ -136,7 +131,7 @@ def get_customer_continent(id):
     customer = Customer.query.get(id)
     return jsonify(customer.to_json_continent())
 
-@app.route('/orders/', methods=['POST'])
+@application.route('/orders/', methods=['POST'])
 def create_order():
     if not request.json:
         abort(400)
@@ -149,6 +144,7 @@ def create_order():
     )
     db.session.add(order)
     db.session.commit()
+    print("Hi")
     return jsonify(order.to_json()), 201
 
 @application.route('/orders/<int:id>/', methods=['GET'])
